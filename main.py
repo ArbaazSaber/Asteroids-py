@@ -3,10 +3,10 @@ import pygame, sys
 from logger import log_state, log_event
 from constants import *
 
-from player import Player
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-from shot import Shot
+from sprites.player import Player
+from sprites.asteroid import Asteroid
+from sprites.asteroidfield import AsteroidField
+from sprites.shot import Shot
 
 def main():
     pygame.init()

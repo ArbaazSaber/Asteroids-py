@@ -8,6 +8,7 @@ __all__ = ["log_state", "log_event"]
 _FPS = 60
 _MAX_SECONDS = 16
 _SPRITE_SAMPLE_LIMIT = 10  # Maximum number of sprites to log per group
+LOG_DIR = "logs"
 
 _frame_count = 0
 _state_log_initialized = False
@@ -108,7 +109,7 @@ def log_state():
 
     # New log file on each run
     mode = "w" if not _state_log_initialized else "a"
-    with open("game_state.jsonl", mode) as f:
+    with open(f"{LOG_DIR}/game_state.jsonl", mode) as f:
         f.write(json.dumps(entry) + "\n")
 
     _state_log_initialized = True
@@ -128,7 +129,7 @@ def log_event(event_type, **details):
     }
 
     mode = "w" if not _event_log_initialized else "a"
-    with open("game_events.jsonl", mode) as f:
+    with open(f"{LOG_DIR}/game_events.jsonl", mode) as f:
         f.write(json.dumps(event) + "\n")
 
     _event_log_initialized = True
